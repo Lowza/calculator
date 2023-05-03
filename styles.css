@@ -2,39 +2,45 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Dosis", sans-serif;
   font-weight: normal;
+}
+
+html {
+  height: 100%;
 }
 
 body {
   padding: 0;
   margin: 0;
-  background: linear-gradient(
-    to right,
-    hsl(200, 100%, 50%),
-    hsl(145, 100%, 50%)
-  );
+  background: linear-gradient(320deg, hsl(190, 80%, 40%), hsl(145, 80%, 40%));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+.wrapper {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: hsla(0, 0%, 100%, 0.5);
+  width: 400px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px hsla(0, 0%, 0%, 0.15);
 }
 
 .calculator-grid {
   display: grid;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
-}
-
-.calculator-grid > button {
-  cursor: pointer;
-  font-size: 2rem;
-  border: 1px solid white;
-  outline: none;
-  background-color: hsla(0, 0%, 100%, 0.75);
-}
-
-.calculator-grid > button:hover {
-  background-color: hsla(0, 0%, 100%, 0.9);
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 70px);
+  gap: 15px;
 }
 
 .span-two {
@@ -48,9 +54,10 @@ body {
   align-items: flex-end;
   justify-content: space-around;
   flex-direction: column;
-  padding: 10px;
+  padding: 15px;
   word-wrap: break-word;
   word-break: break-all;
+  border-radius: 16px;
 }
 
 .output .previous-operand {
@@ -61,4 +68,35 @@ body {
 .output .current-operand {
   color: white;
   font-size: 2.5rem;
+}
+
+button {
+  background-color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 16px;
+}
+
+.operator {
+  background-color: hsl(200, 70%, 50%);
+}
+
+#equals {
+  background-color: hsl(120, 60%, 60%);
+}
+
+.operator:hover,
+#equals:hover,
+button:hover {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: hsla(0, 0%, 100%, 0);
+}
+
+.operator:active,
+#equals:active,
+button:active {
+  background: hsl(46, 100%, 71%);
 }
